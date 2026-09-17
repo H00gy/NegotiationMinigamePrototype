@@ -7,7 +7,7 @@ public class MoneyInput : MonoBehaviour
     public TMP_InputField MoneyInputField;
     public GameObject TimingUI;
     public GreenZone greenZone; 
-    public string Input;
+   
     public float InputAmount;
 
 
@@ -17,7 +17,7 @@ public class MoneyInput : MonoBehaviour
     }
     public void ConfirmInput()
     {
-        MoneyInputField.text = Input;
+        string Input = MoneyInputField.text;
         TimingUI.SetActive(true);
         // Safely attempt to convert the string to a float
         if (float.TryParse(Input, out float result))
