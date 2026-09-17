@@ -5,6 +5,7 @@ public class GreenZone : MonoBehaviour
 {
     Image greenArea;
     float newX;
+    public int zoneValue;
 
     private void Start()
     {
@@ -13,7 +14,7 @@ public class GreenZone : MonoBehaviour
     public void SetZoneSize(float askingPrice)
     {
         
-        int zoneValue = Random.Range(1, 100); // temp for prototype
+        zoneValue = Random.Range(1, 100); // temp for prototype
         if (askingPrice <= zoneValue)
         {
             newX = askingPrice / zoneValue;
