@@ -10,11 +10,12 @@ public class GreenZone : MonoBehaviour
     private void Start()
     {
         greenArea = GetComponent<Image>();
+        zoneValue = Random.Range(1, 100); // temp for prototype
     }
-    public void SetZoneSize(float askingPrice)
+    public void SetZoneSize(float askingPrice) // need to instantiate or smt to loop 
     {
         
-        zoneValue = Random.Range(1, 100); // temp for prototype
+        
         if (askingPrice <= zoneValue)
         {
             newX = askingPrice / zoneValue;
@@ -22,9 +23,7 @@ public class GreenZone : MonoBehaviour
         }
         else if (askingPrice > zoneValue)
         {
-            float tmpNegNum = zoneValue - askingPrice;
-            newX = (tmpNegNum * -1) / zoneValue;
-            greenArea.transform.localScale = new Vector3(newX, 1, 1);
+            greenArea.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
