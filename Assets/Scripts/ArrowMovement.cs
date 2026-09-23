@@ -6,12 +6,13 @@ public class ArrowMovement : MonoBehaviour
     private Vector2 startPos;
 
     public float distance; // How far it moves in pixels
-    public float speed = 2f;      // How fast it moves
+    public float speed;      // How fast it moves
 
     public bool isMoving = true;
 
     void Start()
     {
+        speed = Random.Range(1, 3); 
         rectTransform = GetComponent<RectTransform>();
         startPos = rectTransform.anchoredPosition;
     }
