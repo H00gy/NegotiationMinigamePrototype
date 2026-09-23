@@ -16,12 +16,13 @@ public class GreenZone : MonoBehaviour
     {
         
         
-        if (askingPrice <= zoneValue)
+        if (askingPrice < zoneValue)
         {
-            newX = askingPrice / zoneValue;
-            greenArea.transform.localScale = new Vector3(newX, 1, 1);
+            float temp = askingPrice / zoneValue;
+            newX = temp * temp;
+            greenArea.transform.localScale = new Vector3(newX, 1, 1); // at the moment having an exponential percentage feels balanced
         }
-        else if (askingPrice > zoneValue)
+        else if (askingPrice >= zoneValue)
         {
             greenArea.transform.localScale = new Vector3(1, 1, 1);
         }
