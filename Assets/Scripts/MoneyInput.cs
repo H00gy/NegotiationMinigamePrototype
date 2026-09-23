@@ -17,6 +17,7 @@ public class MoneyInput : MonoBehaviour
     }
     public void ConfirmInput()
     {
+        
         string Input = MoneyInputField.text;
         TimingUI.SetActive(true);
         // Safely attempt to convert the string to a float

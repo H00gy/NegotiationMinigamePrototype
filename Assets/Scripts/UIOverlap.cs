@@ -5,6 +5,8 @@ public class UIOverlap : MonoBehaviour
     public RectTransform Arrow;
     public RectTransform GreenArea; 
     public Camera Camera;
+    public GameObject TimingUI;
+    public GreenZone gz;
     ArrowMovement arrow;
 
     private void Start()
@@ -16,10 +18,16 @@ public class UIOverlap : MonoBehaviour
         if (isOverlapping(Arrow, GreenArea, Camera) && arrow.isMoving == false)
         {
             Debug.Log("arrow in green");
+            gz.SetZoneValue();
+            arrow.isMoving = true;
+            TimingUI.SetActive(false);
         }
         else if (arrow.isMoving == false)
         {
             Debug.Log("no overlap");
+            gz.SetZoneValue();
+            arrow.isMoving = true;
+            TimingUI.SetActive(false);
         }
         
     }
