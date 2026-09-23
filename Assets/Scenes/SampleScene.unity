@@ -877,6 +877,8 @@ MonoBehaviour:
   Arrow: {fileID: 1006717912}
   GreenArea: {fileID: 412348314}
   Camera: {fileID: 519420031}
+  TimingUI: {fileID: 729026913}
+  gz: {fileID: 412348317}
 --- !u!1 &1149007349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 79
-  speed: 2
+  speed: 10
+  isMoving: 1
 --- !u!114 &1501579583
 MonoBehaviour:
   m_ObjectHideFlags: 0
