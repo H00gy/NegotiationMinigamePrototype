@@ -10,6 +10,10 @@ public class GreenZone : MonoBehaviour
     private void Start()
     {
         greenArea = GetComponent<Image>();
+        SetZoneValue();
+    }
+    public void SetZoneValue()
+    {
         zoneValue = Random.Range(1, 100); // temp for prototype
     }
     public void SetZoneSize(float askingPrice) // need to instantiate or smt to loop 

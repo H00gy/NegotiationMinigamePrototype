@@ -5,16 +5,23 @@ public class UIOverlap : MonoBehaviour
     public RectTransform Arrow;
     public RectTransform GreenArea; 
     public Camera Camera;
+    ArrowMovement arrow;
+
+    private void Start()
+    {
+        arrow = GetComponentInParent<ArrowMovement>();
+    }
     void Update()
     {
-        if (isOverlapping(Arrow, GreenArea,Camera))
+        if (isOverlapping(Arrow, GreenArea, Camera) && arrow.isMoving == false)
         {
             Debug.Log("arrow in green");
         }
-        else
+        else if (arrow.isMoving == false)
         {
             Debug.Log("no overlap");
         }
+        
     }
 
     bool isOverlapping(RectTransform rect1, RectTransform rect2, Camera cam)
@@ -22,6 +29,7 @@ public class UIOverlap : MonoBehaviour
         Rect r1 = GetScreenRect(rect1,cam); 
         Rect r2 = GetScreenRect(rect2,cam);
 
+       
         return r1.Overlaps(r2); // returns true if overlaps
     }
     Rect GetScreenRect(RectTransform rectTransform,Camera cam)

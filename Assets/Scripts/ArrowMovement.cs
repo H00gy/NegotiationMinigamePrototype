@@ -8,7 +8,7 @@ public class ArrowMovement : MonoBehaviour
     public float distance; // How far it moves in pixels
     public float speed = 2f;      // How fast it moves
 
-    bool isMoving = true;
+    public bool isMoving = true;
 
     void Start()
     {
