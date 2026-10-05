@@ -7,11 +7,16 @@ public class UIOverlap : MonoBehaviour
     public Camera Camera;
     public GameObject TimingUI;
     public GreenZone gz;
+    public int Patience; 
     ArrowMovement arrow;
+    int count;
 
     private void Start()
     {
         arrow = GetComponentInParent<ArrowMovement>();
+        arrow.speed = Random.Range(1, 3);
+        Patience = Random.Range(1, 3);
+        count = 0;
     }
     void Update()
     {
@@ -21,13 +26,30 @@ public class UIOverlap : MonoBehaviour
             gz.SetZoneValue();
             arrow.isMoving = true;
             TimingUI.SetActive(false);
+            arrow.speed = Random.Range(1, 3);
+            Patience = Random.Range(1, 3);
+            count = 0;
         }
-        else if (arrow.isMoving == false)
+        else if (arrow.isMoving == false && count != Patience)
         {
-            Debug.Log("no overlap");
+            Debug.Log("no overlap and not exceeding count");
+            //gz.SetZoneValue();
+            arrow.isMoving = true;
+            TimingUI.SetActive(false);
+            count++;
+            arrow.speed = arrow.speed * count;
+           
+
+        }
+        else if (arrow.isMoving == false && count == Patience)
+        {
+            Debug.Log("no overlap and past patience");
             gz.SetZoneValue();
             arrow.isMoving = true;
             TimingUI.SetActive(false);
+            arrow.speed = Random.Range(1, 3);
+            Patience = Random.Range(1, 3);
+            count = 0;
         }
         
     }

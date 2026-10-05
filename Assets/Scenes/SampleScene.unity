@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 79
-  speed: 10
+  speed: 6
   isMoving: 1
 --- !u!114 &1501579583
 MonoBehaviour:

@@ -12,7 +12,7 @@ public class ArrowMovement : MonoBehaviour
 
     void Start()
     {
-        speed = Random.Range(1, 3); 
+        //speed = Random.Range(1, 3); 
         rectTransform = GetComponent<RectTransform>();
         startPos = rectTransform.anchoredPosition;
     }
