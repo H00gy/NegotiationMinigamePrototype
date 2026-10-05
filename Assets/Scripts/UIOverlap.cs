@@ -16,7 +16,7 @@ public class UIOverlap : MonoBehaviour
         arrow = GetComponentInParent<ArrowMovement>();
         arrow.speed = Random.Range(1, 3);
         Patience = Random.Range(1, 3);
-        count = 0;
+        count = 1;
     }
     void Update()
     {
@@ -28,9 +28,9 @@ public class UIOverlap : MonoBehaviour
             TimingUI.SetActive(false);
             arrow.speed = Random.Range(1, 3);
             Patience = Random.Range(1, 3);
-            count = 0;
+            count = 1;
         }
-        else if (arrow.isMoving == false && count != Patience)
+        else if (arrow.isMoving == false && count <= Patience)
         {
             Debug.Log("no overlap and not exceeding count");
             //gz.SetZoneValue();
@@ -41,7 +41,7 @@ public class UIOverlap : MonoBehaviour
            
 
         }
-        else if (arrow.isMoving == false && count == Patience)
+        else if (arrow.isMoving == false && count > Patience)
         {
             Debug.Log("no overlap and past patience");
             gz.SetZoneValue();
@@ -49,7 +49,7 @@ public class UIOverlap : MonoBehaviour
             TimingUI.SetActive(false);
             arrow.speed = Random.Range(1, 3);
             Patience = Random.Range(1, 3);
-            count = 0;
+            count = 1;
         }
         
     }
